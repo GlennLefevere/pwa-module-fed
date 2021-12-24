@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "projects": {
+    "pwa-shell": {
+      "projectType": "application",
+      "root": "apps/pwa-shell",
+      "sourceRoot": "apps/pwa-shell/src",
+      "prefix": "pwa-module-fed",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/pwa-shell",
+            "index": "apps/pwa-shell/src/index.html",
+            "main": "apps/pwa-shell/src/main.ts",
+            "polyfills": "apps/pwa-shell/src/polyfills.ts",
+            "tsConfig": "apps/pwa-shell/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/pwa-shell/src/favicon.ico",
+              "apps/pwa-shell/src/assets"
+            ],
+            "styles": ["apps/pwa-shell/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/pwa-shell/src/environments/environment.ts",
+                  "with": "apps/pwa-shell/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "pwa-shell:build:production"
+            },
+            "development": {
+              "browserTarget": "pwa-shell:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pwa-shell:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/pwa-shell/src/**/*.ts",
+              "apps/pwa-shell/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/pwa-shell"],
+          "options": {
+            "jestConfig": "apps/pwa-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "pwa-shell-e2e": {
+      "root": "apps/pwa-shell-e2e",
+      "sourceRoot": "apps/pwa-shell-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/pwa-shell-e2e/cypress.json",
+            "devServerTarget": "pwa-shell:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pwa-shell:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/pwa-shell-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["pwa-shell"]
+    }
+  }
+}
