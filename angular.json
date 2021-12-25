@@ -1,6 +1,141 @@
 {
   "version": 1,
   "projects": {
+    "pwa-mfe1": {
+      "projectType": "application",
+      "root": "apps/pwa-mfe1",
+      "sourceRoot": "apps/pwa-mfe1/src",
+      "prefix": "pwa-module-fed",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/pwa-mfe1",
+            "index": "apps/pwa-mfe1/src/index.html",
+            "main": "apps/pwa-mfe1/src/main.ts",
+            "polyfills": "apps/pwa-mfe1/src/polyfills.ts",
+            "tsConfig": "apps/pwa-mfe1/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/pwa-mfe1/src/favicon.ico",
+              "apps/pwa-mfe1/src/assets"
+            ],
+            "styles": [
+              "apps/pwa-mfe1/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/pwa-mfe1/src/environments/environment.ts",
+                  "with": "apps/pwa-mfe1/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "serviceWorker": true
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "pwa-mfe1:build:production"
+            },
+            "development": {
+              "browserTarget": "pwa-mfe1:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pwa-mfe1:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/pwa-mfe1/src/**/*.ts",
+              "apps/pwa-mfe1/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/pwa-mfe1"
+          ],
+          "options": {
+            "jestConfig": "apps/pwa-mfe1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "pwa-mfe1-e2e": {
+      "root": "apps/pwa-mfe1-e2e",
+      "sourceRoot": "apps/pwa-mfe1-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/pwa-mfe1-e2e/cypress.json",
+            "devServerTarget": "pwa-mfe1:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pwa-mfe1:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/pwa-mfe1-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": [
+        "pwa-mfe1"
+      ]
+    },
     "pwa-shell": {
       "projectType": "application",
       "root": "apps/pwa-shell",
@@ -9,7 +144,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/pwa-shell",
             "index": "apps/pwa-shell/src/index.html",
@@ -21,8 +158,12 @@
               "apps/pwa-shell/src/favicon.ico",
               "apps/pwa-shell/src/assets"
             ],
-            "styles": ["apps/pwa-shell/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/pwa-shell/src/styles.scss"
+            ],
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "apps/pwa-shell/ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -86,7 +227,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/pwa-shell"],
+          "outputs": [
+            "coverage/apps/pwa-shell"
+          ],
           "options": {
             "jestConfig": "apps/pwa-shell/jest.config.js",
             "passWithNoTests": true
@@ -114,14 +257,20 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/pwa-shell-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/pwa-shell-e2e/**/*.{js,ts}"
+            ]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": ["pwa-shell"]
+      "implicitDependencies": [
+        "pwa-shell"
+      ]
     }
   }
 }
