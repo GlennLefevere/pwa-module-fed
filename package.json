@@ -4,12 +4,11 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main && npm run build-post-install",
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
-    "build": "nx build",
+    "build": "npm run build:pwa-mfe1 && npm run build:pwa-shell && nx build server",
     "build:pwa-shell": "nx build pwa-shell --base-href /pwa-shell/",
     "build:pwa-mfe1": "nx build pwa-mfe1 --base-href /pwa-mfe1/",
-    "build-post-install": "npm run build:pwa-mfe1 && npm run build:pwa-shell",
     "app": "node dist/apps/server/main.js",
     "test": "nx test"
   },
