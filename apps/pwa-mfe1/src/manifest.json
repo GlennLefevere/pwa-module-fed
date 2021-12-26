@@ -1,0 +1,12 @@
+{
+  "name": "Pwa Mfe1",
+  "short_name": "Pwa Mfe1",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "default_locale": "NL",
+  "scope": "/pwa-mfe1/",
+  "start_url": "/pwa-mfe1/",
+  "prefer_related_applications": false,
+  "icons": []
+}

@@ -10,10 +10,12 @@
     "build:pwa-shell": "nx build pwa-shell --base-href /pwa-shell/",
     "build:pwa-mfe1": "nx build pwa-mfe1 --base-href /pwa-mfe1/",
     "app": "node dist/apps/server/main.js",
-    "test": "nx test"
+    "test": "nx test",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^14.0.1",
     "@angular/animations": "~13.1.0",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",

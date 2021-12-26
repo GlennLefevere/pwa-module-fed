@@ -8,10 +8,8 @@
       "prefix": "pwa-module-fed",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "builder": "@nrwl/angular:webpack-browser",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/pwa-mfe1",
             "index": "apps/pwa-mfe1/src/index.html",
@@ -23,12 +21,14 @@
               "apps/pwa-mfe1/src/favicon.ico",
               "apps/pwa-mfe1/src/assets"
             ],
-            "styles": [
-              "apps/pwa-mfe1/src/styles.scss"
-            ],
+            "styles": ["apps/pwa-mfe1/src/styles.scss"],
             "scripts": [],
             "serviceWorker": true,
-            "ngswConfigPath": "apps/pwa-mfe1/ngsw-config.json"
+            "ngswConfigPath": "apps/pwa-mfe1/ngsw-config.json",
+            "customWebpackConfig": {
+              "path": "apps/pwa-mfe1/webpack.config.js"
+            },
+            "commonChunk": false
           },
           "configurations": {
             "production": {
@@ -50,7 +50,10 @@
                   "with": "apps/pwa-mfe1/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "customWebpackConfig": {
+                "path": "apps/pwa-mfe1/webpack.prod.config.js"
+              }
             },
             "development": {
               "buildOptimizer": false,
@@ -64,7 +67,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@nrwl/angular:webpack-server",
           "configurations": {
             "production": {
               "browserTarget": "pwa-mfe1:build:production"
@@ -73,12 +76,17 @@
               "browserTarget": "pwa-mfe1:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4000,
+            "publicHost": "http://localhost:4000"
+          }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ngx-build-plus:extract-i18n",
           "options": {
-            "browserTarget": "pwa-mfe1:build"
+            "browserTarget": "pwa-mfe1:build",
+            "extraWebpackConfig": "apps/pwa-mfe1/webpack.config.js"
           }
         },
         "lint": {
@@ -92,9 +100,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/pwa-mfe1"
-          ],
+          "outputs": ["coverage/apps/pwa-mfe1"],
           "options": {
             "jestConfig": "apps/pwa-mfe1/jest.config.js",
             "passWithNoTests": true
@@ -122,20 +128,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/pwa-mfe1-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/pwa-mfe1-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "pwa-mfe1"
-      ]
+      "implicitDependencies": ["pwa-mfe1"]
     },
     "pwa-shell": {
       "projectType": "application",
@@ -144,10 +144,8 @@
       "prefix": "pwa-module-fed",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "builder": "@nrwl/angular:webpack-browser",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/pwa-shell",
             "index": "apps/pwa-shell/src/index.html",
@@ -160,12 +158,14 @@
               "apps/pwa-shell/src/assets",
               "apps/pwa-shell/src/manifest.json"
             ],
-            "styles": [
-              "apps/pwa-shell/src/styles.scss"
-            ],
+            "styles": ["apps/pwa-shell/src/styles.scss"],
             "scripts": [],
             "serviceWorker": true,
-            "ngswConfigPath": "apps/pwa-shell/ngsw-config.json"
+            "ngswConfigPath": "apps/pwa-shell/ngsw-config.json",
+            "customWebpackConfig": {
+              "path": "apps/pwa-shell/webpack.config.js"
+            },
+            "commonChunk": false
           },
           "configurations": {
             "production": {
@@ -187,7 +187,10 @@
                   "with": "apps/pwa-shell/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "customWebpackConfig": {
+                "path": "apps/pwa-shell/webpack.prod.config.js"
+              }
             },
             "development": {
               "buildOptimizer": false,
@@ -201,7 +204,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@nrwl/angular:webpack-server",
           "configurations": {
             "production": {
               "browserTarget": "pwa-shell:build:production"
@@ -210,12 +213,17 @@
               "browserTarget": "pwa-shell:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 5000,
+            "publicHost": "http://localhost:5000"
+          }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ngx-build-plus:extract-i18n",
           "options": {
-            "browserTarget": "pwa-shell:build"
+            "browserTarget": "pwa-shell:build",
+            "extraWebpackConfig": "apps/pwa-shell/webpack.config.js"
           }
         },
         "lint": {
@@ -229,9 +237,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/pwa-shell"
-          ],
+          "outputs": ["coverage/apps/pwa-shell"],
           "options": {
             "jestConfig": "apps/pwa-shell/jest.config.js",
             "passWithNoTests": true
@@ -259,20 +265,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/pwa-shell-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/pwa-shell-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "pwa-shell"
-      ]
+      "implicitDependencies": ["pwa-shell"]
     },
     "server": {
       "root": "apps/server",
@@ -281,16 +281,12 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/server",
             "main": "apps/server/src/main.ts",
             "tsConfig": "apps/server/tsconfig.app.json",
-            "assets": [
-              "apps/server/src/assets"
-            ]
+            "assets": ["apps/server/src/assets"]
           },
           "configurations": {
             "production": {
@@ -314,20 +310,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/server/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/server/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/server"
-          ],
+          "outputs": ["coverage/apps/server"],
           "options": {
             "jestConfig": "apps/server/jest.config.js",
             "passWithNoTests": true

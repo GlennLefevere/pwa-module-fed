@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  remoteModule: 'http://localhost:4000/',
 };
 
 /*
