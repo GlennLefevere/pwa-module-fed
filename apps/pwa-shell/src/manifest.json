@@ -1,0 +1,12 @@
+{
+  "name": "Pwa Shell",
+  "short_name": "Pwa Shell",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "default_locale": "NL",
+  "scope": "/pwa-shell/",
+  "start_url": "/pwa-shell/",
+  "prefer_related_applications": false,
+  "icons": []
+}

@@ -157,7 +157,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/pwa-shell/src/favicon.ico",
-              "apps/pwa-shell/src/assets"
+              "apps/pwa-shell/src/assets",
+              "apps/pwa-shell/src/manifest.json"
             ],
             "styles": [
               "apps/pwa-shell/src/styles.scss"
