@@ -6,9 +6,10 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
+import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, SplashScreenComponent],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

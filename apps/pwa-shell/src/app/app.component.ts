@@ -6,16 +6,6 @@ import {SwUpdate} from '@angular/service-worker';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  title = 'pwa-shell';
+export class AppComponent {
 
-  constructor(private readonly swUpdate: SwUpdate) {
-  }
-
-  ngOnInit(): void {
-    this.swUpdate.versionUpdates.subscribe(() => {
-      console.log('update');
-      window.location.reload();
-    })
-  }
 }
