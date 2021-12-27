@@ -1,0 +1,24 @@
+.departures {
+  background-color: #1d2d3a;
+  color: #ffce44;
+  span {
+    padding: 0.5rem;
+  }
+}
+
+.header-item {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.odd {
+  background-color: #1e2c36;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-4 {
+  grid-template-columns: auto 1fr auto auto;
+}

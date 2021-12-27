@@ -6,17 +6,26 @@ import {environment} from '../environments/environment';
 const routes: Route[] = [
   {
     path: '',
-    redirectTo: 'flights',
+    redirectTo: 'arrivals',
     pathMatch: 'full',
   },
   {
-    path: 'flights',
+    path: 'arrivals',
     loadChildren: () =>
       loadRemoteModule({
         type: 'module',
-        remoteEntry: `${environment.remoteModule}remoteEntry.js`,
+        remoteEntry: `${environment.mfe}remoteEntry.js`,
         exposedModule: './Module',
-      }).then(m => m.FlightsModule),
+      }).then(m => m.ArrivalsModule),
+  },
+  {
+    path: 'departures',
+    loadChildren: () =>
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: `${environment.pwa_mfe}remoteEntry.js`,
+        exposedModule: './Module',
+      }).then(m => m.DeparturesModule),
   },
 ];
 

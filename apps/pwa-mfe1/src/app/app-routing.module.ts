@@ -4,12 +4,12 @@ import {NgModule} from '@angular/core';
 const routes: Route[] = [
   {
     path: '',
-    redirectTo: 'flights',
+    redirectTo: 'departures',
     pathMatch: 'full',
   },
   {
-    path: 'flights',
-    loadChildren: () => import('../modules/flights/flights.module').then(m => m.FlightsModule),
+    path: 'departures',
+    loadChildren: () => import('../modules/departures/departures.module').then(m => m.DeparturesModule),
   },
 ];
 

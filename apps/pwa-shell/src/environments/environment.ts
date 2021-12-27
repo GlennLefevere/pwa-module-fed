@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  remoteModule: 'http://localhost:4000/',
+  pwa_mfe: 'http://localhost:4000/',
+  mfe: 'http://localhost:3000/'
 };
 
 /*

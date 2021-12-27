@@ -1,0 +1,40 @@
+.header {
+  border-bottom: 1px solid #1d2d3a;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  padding: 0.5rem 1rem;
+}
+
+.grid-cols-3 {
+  grid-template-columns: auto 1fr auto;
+}
+
+ul.menu {
+  list-style-type: none;
+  display: flex;
+  padding-inline-start: 0;
+
+  li {
+    margin: 0 1rem;
+
+    a {
+      color: #1d2d3a;
+      padding: 0.5rem 0;
+      text-decoration: none;
+
+      &.active {
+        font-weight: bold;
+        border-bottom: 2px solid #1d2d3a;
+      }
+    }
+  }
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -32,7 +32,7 @@ module.exports = {
       name: "pwaMfe",
       filename: "remoteEntry.js",
       exposes: {
-        './Module': 'apps/pwa-mfe1/src/modules/flights/flights.module.ts',
+        './Module': 'apps/pwa-mfe1/src/modules/departures/departures.module.ts',
       },
 
       // For hosts (please adjust)

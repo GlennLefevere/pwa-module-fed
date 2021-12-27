@@ -1,0 +1,38 @@
+<ng-container *ngIf="flights$ | async as flights">
+  <div class="departures grid grid-cols-4">
+      <span class="header-item">
+        Flight
+      </span>
+
+    <span class="header-item">
+        Destination
+      </span>
+
+    <span class="header-item">
+        Status
+      </span>
+
+    <span class="header-item">
+        Departure time
+    </span>
+    <ng-container *ngFor="let flight of flights; let odd = odd">
+      <span [class.odd]="odd">
+        {{flight.carrier_flight_number}}
+      </span>
+
+      <span [class.odd]="odd">
+        {{flight.location.name}}
+      </span>
+
+      <span [class.odd]="odd">
+        {{flight.scheduled_time | flightStatus}}
+      </span>
+
+      <span [class.odd]="odd">
+        {{flight.scheduled_time | date: 'HH:mm'}}
+      </span>
+
+    </ng-container>
+  </div>
+
+</ng-container>

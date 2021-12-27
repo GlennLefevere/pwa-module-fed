@@ -14,7 +14,12 @@ import {join} from 'path';
       {
         rootPath: join(__dirname, '..', 'pwa-mfe1'),
         serveRoot: '/pwa-mfe1',
-      }),
+      },
+      {
+        rootPath: join(__dirname, '..', 'mfe2'),
+        serveRoot: '/mfe2',
+      },
+    ),
   ],
   controllers: [AppController],
   providers: [AppService],

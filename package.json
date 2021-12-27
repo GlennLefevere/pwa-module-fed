@@ -6,9 +6,10 @@
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
-    "build": "npm run build:pwa-mfe1 && npm run build:pwa-shell && nx build server",
+    "build": "npm run build:pwa-mfe1 && npm run build:pwa-shell && npm run build:mfe2 && nx build server",
     "build:pwa-shell": "nx build pwa-shell --base-href /pwa-shell/",
     "build:pwa-mfe1": "nx build pwa-mfe1 --base-href /pwa-mfe1/",
+    "build:mfe2": "nx build mfe2 --base-href /mfe2/",
     "app": "node dist/apps/server/main.js",
     "test": "nx test",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
