@@ -6,8 +6,12 @@ import {environment} from '../environments/environment';
 const routes: Route[] = [
   {
     path: '',
-    redirectTo: 'arrivals',
+    redirectTo: 'home',
     pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('../modules/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'arrivals',

@@ -1,11 +1,25 @@
 import {ApplicationRef, Injectable} from '@angular/core';
 import {SwUpdate} from '@angular/service-worker';
-import {catchError, first, from, mapTo, Observable, of, switchMap, timeout, timer} from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  first,
+  from,
+  mapTo,
+  Observable,
+  of,
+  Subject,
+  switchMap,
+  timeout,
+  timer,
+} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PwaService {
+
+  online$: Subject<boolean> = new BehaviorSubject<boolean>(navigator.onLine);
 
   constructor(
     private appRef: ApplicationRef,
@@ -37,6 +51,14 @@ export class PwaService {
     }
 
     return timer(waitFor).pipe(mapTo(false));
+  }
+
+  applicationOffline() {
+    this.online$.next(false);
+  }
+
+  applicationOnline() {
+    this.online$.next(true);
   }
 
 }

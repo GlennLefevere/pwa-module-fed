@@ -5,17 +5,7 @@ import {PwaService} from '../../services/pwa.service';
 @Component({
   selector: 'pwa-module-fed-splash-screen',
   templateUrl: './splash-screen.component.html',
-  styles: [`
-    .splash-screen {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 9999;
-      background-color: #1d2d3a;
-    }
-  `],
+  styleUrls: ['./splash-screen.component.scss'],
   animations: [
     trigger('fadeOut', [
       transition(':leave', [
