@@ -2,7 +2,12 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
   column-gap: 1.5rem;
+}
+
+.xs-col-span-2 {
+  grid-column: span 2 / span 2;
 }
 
 @media (min-width: 640px) {
@@ -10,7 +15,11 @@
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
     column-gap: 1.5rem;
+  }
+  .sm-col-span-6 {
+    grid-column: span 6 / span 6;
   }
 }
 
@@ -19,7 +28,11 @@
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-column-gap: 2.5rem;
+    grid-row-gap: 2.5rem;
     column-gap: 2.5rem;
+  }
+  .md-col-span-6 {
+    grid-column: span 6 / span 6;
   }
 }
 
@@ -28,7 +41,11 @@
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-column-gap: 2.5rem;
+    grid-row-gap: 2.5rem;
     column-gap: 2.5rem;
+  }
+  .lg-col-span-3 {
+    grid-column: span 4 / span 4;
   }
 }
 
@@ -37,16 +54,17 @@
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-column-gap: 2.5rem;
+    grid-row-gap: 2.5rem;
     column-gap: 2.5rem;
+  }
+  .xl-col-span-3 {
+    grid-column: span 4 / span 4;
   }
 }
 
-.col-span-3 {
-  grid-column: span 4 / span 4;
-}
-
-.p-16 {
-  padding: 4rem;
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .border-1 {
@@ -63,6 +81,7 @@
 
 .tile {
   display: flex;
+  justify-content: center;
   align-content: center;
   align-items: center;
   font-size: 34px;

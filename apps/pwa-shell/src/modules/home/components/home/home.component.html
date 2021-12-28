@@ -1,6 +1,6 @@
 <div class="grid">
 
-  <div class="col-span-3 p-16 border-1 border-rounded cursor-pointer tile" [class.offline]="!(online$ | async)"
+  <div class="xs-col-span-2 sm-col-span-6 md-col-span-6 lg-col-span-3 xl-col-span-3 py-12 border-1 border-rounded cursor-pointer tile" [class.offline]="!(online$ | async)"
        (click)="onArrivalsClicked($event)">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plane-arrival" role="img" height="80"
          width="51.5"
@@ -13,7 +13,7 @@
     <span>Arrivals</span>
   </div>
 
-  <div class="col-span-3 p-16 border-1 border-rounded cursor-pointer tile" [class.offline]="!(online$ | async)"
+  <div class="xs-col-span-2 sm-col-span-6 md-col-span-6 lg-col-span-3 xl-col-span-3 py-12 border-1 border-rounded cursor-pointer tile" [class.offline]="!(online$ | async)"
        (click)="onDeparturesClicked($event)">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plane-departure" role="img" height="80"
          width="48"

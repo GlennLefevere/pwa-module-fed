@@ -6,7 +6,7 @@ import {ArrivalsComponent} from './components/arrivals/arrivals.component';
 import {ArrivalsService} from './services/arrivals.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ArrivalsHttpService} from './http-services/arrivals.http-service';
-import { FlightStatusPipe } from './pipes/flight-status.pipe';
+import {FlightStatusPipe} from './pipes/flight-status.pipe';
 
 
 @NgModule({
