@@ -1,6 +1,6 @@
 export interface Flight {
   scheduled_time: Date;
-  best_known_time: Date;
+  best_known_time?: Date;
   companions: unknown[];
   via: unknown[];
   id: string;

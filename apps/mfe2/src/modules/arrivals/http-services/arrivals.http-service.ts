@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class ArrivalsHttpService {
 
-  private readonly url = `${environment.api}/flights`;
+  private readonly url = `${environment.api}/flights/arrivals`;
 
   constructor(private readonly http: HttpClient) {
   }

@@ -7,7 +7,7 @@ import {Flight} from '../model/flight.interface';
 @Injectable()
 export class DeparturesHttpService {
 
-  private readonly url = `${environment.api}/flights`;
+  private readonly url = `${environment.api}/flights/departures`;
 
   constructor(private readonly http: HttpClient) {
   }
